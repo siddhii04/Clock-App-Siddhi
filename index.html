@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .clock {
+            background-color: white;
+            width: 350px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        #time {
+            font-size: 35px;
+            color: black;
+            margin: 20px;
+        }
+
+        #date {
+            font-size: 20px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="clock">
+
+        <h1>Digital Clock</h1>
+
+        <div id="time">00:00:00</div>
+
+        <div id="date"></div>
+
+    </div>
+
+    <script>
+
+        function showTime() {
+
+            var now = new Date();
+
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+
+            var time = hours + ":" + minutes + ":" + seconds;
+
+            document.getElementById("time").innerHTML = time;
+
+            var date = now.toDateString();
+
+            document.getElementById("date").innerHTML = date;
+        }
+
+        showTime();
+
+        setInterval(showTime, 1000);
+
+    </script>
+
+</body>
+</html>
